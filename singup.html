@@ -14,7 +14,7 @@
     <script src="./script/signUp.js" defer></script>
   </head>
 
-  <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <body class="bg-white text-black flex items-center justify-center min-h-screen">
     <div
       class="grid md:grid-cols-2 w-11/12 md:w-8/12 bg-white shadow-xl rounded-2xl overflow-hidden"
     >
@@ -29,8 +29,8 @@
 
       <!-- Form Section -->
       <div class="p-10">
-        <h1 class="text-3xl font-bold text-gray-800">Register Now</h1>
-        <p class="text-gray-500 mt-2">Create your account to get started</p>
+        <h1 class="text-3xl font-bold text-black">Register Now</h1>
+        <p class="text-black/70 mt-2">Create your account to get started</p>
 
         <form
           onsubmit="createUser(event)"
@@ -39,7 +39,7 @@
         >
           <!-- name -->
           <div class="flex flex-col gap-2">
-            <label class="text-sm font-medium text-gray-700">Fullname</label>
+            <label class="text-sm font-medium text-black/80">Fullname</label>
             <input
               onblur="validation('fullname', 'fullname-error')"
               oninput="validation('fullname', 'fullname-error')"
@@ -47,15 +47,15 @@
               name="fullname"
               type="name"
               placeholder="Enter your name"
-              class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+              class="border border-black/20 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 transition"
             />
-            <label id="fullname-error" class="text-rose-600 hidden font-medium"
+            <label id="fullname-error" class="text-red-500 hidden font-medium"
               >please fil Up full Name</label
             >
           </div>
           <!-- Email -->
           <div class="flex flex-col gap-2">
-            <label id="fullname-error" class="text-sm font-medium text-gray-700"
+            <label id="fullname-error" class="text-sm font-medium text-black/80"
               >Email</label
             >
             <input
@@ -65,17 +65,17 @@
               name="email"
               type="email"
               placeholder="Enter your email"
-              class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+              class="border border-black/20 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 transition"
             />
-            <label id="email-error" class="text-rose-600 hidden font-medium"
+            <label id="email-error" class="text-red-500 hidden font-medium"
               >please fil Up email</label
             >
           </div>
 
           <!-- Password -->
           <div class="flex flex-col gap-2">
-            <label class="text-sm font-medium text-gray-700">Password</label>
-            <div  class="border flex border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+            <label class="text-sm font-medium text-black/80">Password</label>
+            <div  class="border flex border-black/20 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 transition">
               <input
                 onblur="validation('password', 'password-error')"
                 oninput="validation('password', 'password-error')"
@@ -90,7 +90,7 @@
                <i id="eye-icon" class="ri-eye-line"></i>
             </button>
             </div>
-            <label id="password-error" class="text-rose-600 hidden font-medium"
+            <label id="password-error" class="text-red-500 hidden font-medium"
               >please fil Up password</label
             >
           </div>
@@ -98,7 +98,7 @@
           <!-- Button -->
           <button
             id="user-btn"
-            class="w-full bg-green-400 hover:bg-gray-900 text-white font-semibold py-2 rounded-lg transition"
+            class="w-full bg-green-600 hover:bg-black text-white font-semibold py-2 rounded-lg transition"
           >
             Sing Up
           </button>

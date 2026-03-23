@@ -1,7 +1,7 @@
 window.onload = () => {
   const user = localStorage.getItem("isLogin");
   if (user) {
-    window.location.replace("profile.html");
+    window.location.replace("index.html");
   }
 };
 
@@ -49,7 +49,7 @@ function createUser(event) {
   setTimeout(() => {
     localStorage.setItem("isLogin", true);
     localStorage.setItem("currentUser", email);
-    window.location.replace("profile.html");
+    window.location.replace("index.html");
   }, 1000);
 }
 

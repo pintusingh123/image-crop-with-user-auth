@@ -2,7 +2,7 @@
 window.onload =()=>{
   const user = localStorage.getItem("isLogin");
   if(user){
-    window.location.replace("profile.html")
+    window.location.replace("index.html")
   }
 }
 
@@ -33,7 +33,7 @@ function loginUser(e) {
            //ise use krne sse ye previous history ko browser me store kr ke rkhta hai jse agr ham back btn pr click krenge to waps login page open hoga 
 
            //isliye ham ye use krenge => 
-            window.location.replace("profile.html") 
+            window.location.replace("index.html") 
 
            localStorage.setItem("isLogin", true);
            localStorage.setItem("currentUser", email);

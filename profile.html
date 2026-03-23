@@ -10,14 +10,17 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="https://unpkg.com/cropperjs@1.5.13/dist/cropper.min.css">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/cropperjs@1.5.13/dist/cropper.min.css"
+    />
     <script src="https://unpkg.com/cropperjs@1.5.13/dist/cropper.min.js"></script>
 
     <script src="./script/profile.js" defer></script>
   </head>
 
-  <body>
-    <div class="bg-gray-600 min-h-screen py-20   px-4">
+  <body class="bg-black text-white">
+    <div class="bg-black min-h-screen py-20 px-4">
       <!-- Parent -->
       <div
         class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-6 items-stretch"
@@ -27,7 +30,10 @@
           class="bg-white relative pt-20 pb-6 px-6 sm:px-8 w-full lg:h-fit lg:w-[300px] rounded-2xl shadow-lg flex flex-col items-center"
         >
           <!-- Avatar -->
-          <div id="uploadimgdiv" class="absolute -top-16 left-1/2 transform -translate-x-1/2 w-32 h-32 border-4 border-white rounded-full overflow-hidden flex justify-center items-center">
+          <div
+            id="uploadimgdiv"
+            class="absolute -top-16 left-1/2 transform -translate-x-1/2 w-32 h-32 border-4 border-white rounded-full overflow-hidden flex justify-center items-center"
+          >
             <img
               id="profile-avatar"
               class="w-full h-full object-cover rounded-full"
@@ -39,40 +45,58 @@
               type="file"
               accept="image/*"
               class="absolute opacity-0 top-0 left-0 h-full w-full cursor-pointer"
-              onchange="uploadProfileimg()"
+              onchange="uploadImg(event)"
             />
           </div>
 
           <!-- Content -->
           <div class="mt-4 text-center w-full">
             <div class="mb-2">
-              <span class="text-sm font-semibold text-gray-900">User Name:</span>
-              <span id="user-name" class="text-base font-semibold text-blue-800 ml-1"></span>
+              <span class="text-sm font-semibold text-black"
+                >User Name:</span
+              >
+              <span
+                id="user-name"
+                class="text-base font-semibold text-green-600 ml-1"
+              ></span>
             </div>
             <div class="mb-6">
-              <span class="text-sm font-semibold text-gray-900">User Email:</span>
-              <span id="user-email" class="text-base font-semibold text-blue-800 ml-1"></span>
+              <span class="text-sm font-semibold text-black"
+                >User Email:</span
+              >
+              <span
+                id="user-email"
+                class="text-base font-semibold text-green-600 ml-1"
+              ></span>
             </div>
 
             <div class="space-y-3 w-full">
               <button
                 type="button"
-                class="relative bg-[#3F5174] w-full px-5 py-2 rounded-lg font-semibold hover:bg-black text-white transition"
+                class="relative bg-green-600 w-full px-5 py-2 rounded-lg font-semibold hover:bg-black text-white transition"
               >
                 <i class="ri-download-line mr-1"></i>
                 Choose Image
                 <input
                   id="file-input"
-                  onchange="uploadImg()"
+                  onchange="uploadImg(event)"
                   type="file"
                   accept="image/*"
                   class="absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer"
                 />
               </button>
 
+              <a
+                href="index.html"
+                class="bg-black hover:bg-green-600 w-full px-5 py-2 rounded-lg font-semibold text-white text-center transition block"
+              >
+                <i class="ri-home-line mr-1"></i>
+                Back to Home
+              </a>
+
               <button
                 onclick="loadCropper()"
-                class="bg-rose-800 w-full px-5 py-2 rounded-lg font-semibold hover:bg-black text-white transition"
+                class="bg-black w-full px-5 py-2 rounded-lg font-semibold hover:bg-green-600 text-white transition"
               >
                 <i class="ri-crop-line mr-1"></i>
                 Crop Image
@@ -81,7 +105,7 @@
               <button
                 onclick="DownloadImg()"
                 id="download-button"
-                class="hidden bg-green-800 w-full px-5 py-2 rounded-lg font-semibold hover:bg-black text-white transition"
+                class="hidden bg-green-600 w-full px-5 py-2 rounded-lg font-semibold hover:bg-black text-white transition"
               >
                 <i class="ri-upload-line mr-1"></i>
                 Download
@@ -89,7 +113,7 @@
 
               <button
                 onclick="logOut()"
-                class="bg-[#3F5174] w-full px-5 py-2 rounded-lg font-semibold hover:bg-black text-white transition"
+                class="bg-black w-full px-5 py-2 rounded-lg font-semibold hover:bg-green-600 text-white transition"
               >
                 <i class="ri-logout-circle-r-line mr-1"></i>
                 Logout

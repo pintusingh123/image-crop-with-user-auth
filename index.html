@@ -1,0 +1,416 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Image Crop Web - Home</title>
+    <style>
+      /* Hover sweep: dark + blur overlay animates top -> bottom on every hover */
+      .hover-sweep {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hover-sweep::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        pointer-events: none;
+        opacity: 0;
+        transform: translateY(-120%);
+        background: rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+      }
+
+      .hover-sweep:hover::after {
+        animation: hoverSweep 650ms ease-out;
+      }
+
+      @keyframes hoverSweep {
+        0% {
+          opacity: 0;
+          transform: translateY(-120%);
+        }
+        15% {
+          opacity: 1;
+          transform: translateY(-60%);
+        }
+        50% {
+          opacity: 1;
+          transform: translateY(0%);
+        }
+        85% {
+          opacity: 1;
+          transform: translateY(60%);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(120%);
+        }
+      }
+    </style>
+  </head>
+
+  <body class="bg-white text-black">
+    <!-- Navbar -->
+    <nav class="bg-green-50 shadow-lg">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <div class="flex items-center">
+            <h1 class="text-xl font-bold text-black">
+              Cro<span class="text-green-700">pify</span>
+            </h1>
+          </div>
+
+          <div class="flex items-center space-x-4">
+            <!-- Login/Signup buttons (shown when not logged in) -->
+            <div id="auth-buttons" class="hidden space-x-2">
+              <a
+                href="login.html"
+                class="font-medium hover:underline transition"
+              >
+                Log<span class="text-green-900">in</span>
+              </a>
+              <a
+                href="singup.html"
+                class="font-medium hover:underline transition"
+              >
+                Sign<span class="text-green-900">Up</span>
+              </a>
+            </div>
+
+            <!-- Profile section (shown when logged in) -->
+            <div
+              id="profile-section"
+              class="hidden flex items-center space-x-2"
+            >
+              <span
+                id="navbar-username"
+                class="text-black/80 font-medium"
+              ></span>
+              <a href="profile.html" class="flex items-center">
+                <img
+                  id="navbar-avatar"
+                  src="./imgs/avatar.jfif"
+                  alt="Profile"
+                  class="w-10 h-10 rounded-full border-2 border-black/20 hover:border-green-600 transition"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="bg-gradient-to-b from-green-500 to-gray-800 text-white py-20"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">
+          Welcome to Image <span class="text-gray-900">Cropify</span>
+        </h1>
+        <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+          The ultimate tool for cropping and editing images online. Upload,
+          crop, and download your images with ease.
+        </p>
+        <div class="flex justify-center space-x-4">
+          <a
+            href="#features"
+            class="bg-white text-black px-8 py-3 rounded-lg font-semibold hover:bg-black hover:text-white transition"
+          >
+            Learn More
+          </a>
+          <a
+            href="profile.html"
+            class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-black transition"
+          >
+            Get Started
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">
+            Powerful Image <span class="text-green-600">Cropping Features</span>
+          </h2>
+          <p class="text-lg text-black/70 max-w-2xl mx-auto">
+            Discover the amazing capabilities of our image cropping web
+            application.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Feature 1 -->
+          <div
+            class="hover-sweep bg-white border border-black/10 p-8 rounded-xl shadow-lg text-center"
+          >
+            <div
+              class="w-16 h-16 rounded-full border-green-800 border flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="ri-upload-line text-black text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-black mb-4">Easy Upload</h3>
+            <p class="text-black/70">
+              Upload your images from your device with a simple click. Support
+              for multiple formats including JPG, PNG, and more.
+            </p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div
+            class="hover-sweep bg-white border border-black/10 p-8 rounded-xl shadow-lg text-center"
+          >
+            <div
+              class="w-16 h-16 border-green-800 border rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="ri-crop-line text-black text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-black mb-4">
+              Advanced Cropping
+            </h3>
+            <p class="text-black/70">
+              Use our intuitive cropping interface to select the perfect portion
+              of your image. Real-time preview and precise controls.
+            </p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div
+            class="hover-sweep bg-white border border-black/10 p-8 rounded-xl shadow-lg text-center"
+          >
+            <div
+              class="w-16 h-16 border-green-800 border rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="ri-download-line text-black text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-black mb-4">
+              Quick Download
+            </h3>
+            <p class="text-black/70">
+              Download your cropped images instantly in high quality. Perfect
+              for social media, websites, or personal use.
+            </p>
+          </div>
+          <!-- Feature 4 -->
+          <div
+            class="hover-sweep bg-white border border-black/10 p-8 rounded-xl shadow-lg text-center"
+          >
+            <div
+              class="w-16 h-16 border-green-800 border rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="ri-download-line text-black text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-black mb-4">
+              Free Crop & Download
+            </h3>
+            <p class="text-black/70">
+              Enjoy free image cropping with instant high-quality downloads. No
+              sign-up, no limits — just crop and save your images.
+            </p>
+          </div>
+
+          <!-- Feature 5 -->
+          <div
+            class="hover-sweep bg-white border border-black/10 p-8 rounded-xl shadow-lg text-center"
+          >
+            <div
+              class="w-16 h-16 border-green-800 border rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="ri-download-line text-black text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-black mb-4">Data Security</h3>
+            <p class="text-black/70">
+              Your images are completely सुरक्षित with us. We do not store or
+              share your data — all processing happens securely to ensure your
+              privacy at every step.
+            </p>
+          </div>
+
+          <!-- Feature 6 -->
+          <div
+            class="hover-sweep bg-white border border-black/10 p-8 rounded-xl shadow-lg text-center"
+          >
+            <div
+              class="w-16 h-16 border-green-800 border rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="ri-download-line text-black text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-black mb-4">Easy To Use</h3>
+            <p class="text-black/70">
+              Our simple and intuitive interface makes image cropping
+              effortless. Just upload your image, adjust the crop area, and get
+              your result in seconds without any hassle.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">
+            How It <span class="text-green-600">Works</span>
+          </h2>
+          <p class="text-lg text-black/70">
+            Get started with image cropping in just 3 simple steps.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div
+              class="w-20 h-20 border-green-800 border rounded-full flex items-center justify-center mx-auto mb-6 text-black text-2xl font-bold"
+            >
+              1
+            </div>
+            <h3 class="text-xl font-semibold text-black mb-4">Upload Image</h3>
+            <p class="text-black/70">
+              Choose an image from your device or drag and drop it into the
+              upload area.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div
+              class="w-20 h-20 border-green-800 border rounded-full flex items-center justify-center mx-auto mb-6 text-black text-2xl font-bold"
+            >
+              2
+            </div>
+            <h3 class="text-xl font-semibold text-black mb-4">Crop & Edit</h3>
+            <p class="text-black/70">
+              Use our cropping tools to select the desired area and make
+              adjustments.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div
+              class="w-20 h-20 border-green-800 border rounded-full flex items-center justify-center mx-auto mb-6 text-black text-2xl font-bold"
+            >
+              3
+            </div>
+            <h3 class="text-xl font-semibold text-black mb-4">Download</h3>
+            <p class="text-black/70">
+              Save your cropped image in your preferred format and resolution.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Get in Touch Section -->
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <button
+            class="text-green-900 border border-green-400 px-4 py-2 rounded-full text-sm font-semibold transition mb-6"
+          >
+            GET IN TOUCH..
+          </button>
+          <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">
+            Ready to Transform <span class="text-green-600">Your Images?</span>
+          </h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
+            Have questions about our image cropping tools? Need help with a
+            specific project? Or just want to share your feedback? We'd love to
+            hear from you! Reach out through any of the channels below and let's
+            create something amazing together.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <!-- Email -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition"
+          >
+            <div
+              class="w-16 h-16  border border-green-700  rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="ri-mail-line text-rose-500 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Email Us</h3>
+            <p class="text-gray-600 mb-4">
+              Drop us a line anytime. We respond within 24 hours.
+            </p>
+            <a
+              href="mailto:contact@imagecropweb.com"
+              class="text-blue-600 hover:text-blue-800 font-medium"
+            >
+               pintujhala4@gmail.com
+            </a>
+          </div>
+
+          <!-- WhatsApp -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition"
+          >
+            <div
+              class="w-16 h-16 border border-green-600 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="ri-whatsapp-line text-green-600 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">WhatsApp</h3>
+            <p class="text-gray-600 mb-4">
+              Chat with us instantly for quick support and queries.
+            </p>
+            <a
+              href="https://wa.me/1234567890"
+              class="text-green-900 hover:text-green-800 font-medium"
+            >
+              +918003642596
+            </a>
+          </div>
+
+          <!-- Instagram -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition"
+          >
+            <div
+              class="w-16 h-16 border border-green-600 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="ri-instagram-line text-rose-500 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Instagram</h3>
+            <p class="text-gray-600 mb-4">
+              Follow us for tips, and behind-the-scenes content.
+            </p>
+            <a
+              href="https://instagram.com/jhala_sahab11"
+              class="text-pink-600 hover:text-pink-800 font-medium"
+            >
+              @jhala_sahab11
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="bg-gradient-to-t from-green-900 to-gray-900 text-white py-12"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-white/70">
+          &copy; 2026 Cropify. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="./script/index.js"></script>
+  </body>
+</html>

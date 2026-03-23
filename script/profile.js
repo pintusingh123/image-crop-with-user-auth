@@ -37,17 +37,25 @@ function logOut() {
   }, 1000);
 }
 
-function uploadImg() {
-  let fileInput = document.getElementById("file-input");
-  const editImg = document.getElementById("edit-img");
+function uploadImg(event) {
+  const fileInput = event ? event.target : document.getElementById("file-input") || document.getElementById("avatar-file-input");
+  const file = fileInput.files?.[0];
+  if (!file) return;
 
-  let file = fileInput.files[0]; //it return img  file Array
-  // console.log(file);
-  const imgUrl = URL.createObjectURL(file); //it used for make url of img file
-  // console.log(imgURl);
-  editImg.src = imgUrl;
+  const reader = new FileReader();
+  reader.onload = (event) => {
+    const imgData = event.target.result;
+    const avatar = document.getElementById("profile-avatar");
+    const editImg = document.getElementById("edit-img");
 
-  // alert("sdfd")
+    avatar.src = imgData;
+    editImg.src = imgData;
+
+    const userData = getCurrentUserData() || {};
+    userData.profileImage = imgData;
+    setCurrentUserData(userData);
+  };
+  reader.readAsDataURL(file);
 }
 
 let Croper = null;
