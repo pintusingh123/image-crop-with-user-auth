@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <script src="./script/login.js"></script>
+  </head>
+
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div
+      class="grid md:grid-cols-2 w-11/12 md:w-8/12 bg-white shadow-xl rounded-2xl overflow-hidden"
+    >
+      <!-- Image Section -->
+      <div class="flex flex- md:flex-rows items-center justify-center">
+        <img
+          class="w-full max-w-md"
+          src="./imgs/undraw_authentication_1evl.png"
+          alt="not Found"
+        />
+      </div>
+
+      <!-- Form Section -->
+      <div class="p-10">
+        <h1 class="text-3xl font-bold text-gray-800">Sign in</h1>
+        <p class="text-gray-500 mt-2">Log in if Your already Sing in</p>
+
+        <form onsubmit="loginUser(event)" class="mt-8 space-y-6">
+          <!-- Email -->
+          <div class="flex flex-col gap-2">
+            <label class="text-sm font-medium text-gray-700">Email</label>
+            <input
+              onblur="validation('email', 'email-error')"
+              oninput="validation('email', 'email-error')"
+              id="email"
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+            />
+            <label id="email-error" class="text-rose-600 font-medium hidden"
+              ></label
+            >
+          </div>
+
+          <!-- Password -->
+          <div class="flex flex-col gap-2">
+            <label class="text-sm font-medium text-gray-700">Password</label>
+            <input
+              onblur="validation('password', 'password-error')"
+              oninput="validation('password', 'password-error')"
+              id="password"
+              name="password"
+              type="password"
+              placeholder="********"
+              class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+            />
+            <label id="password-error" class="text-rose-600 font-medium hidden"
+              >Password is required</label
+            >
+          </div>
+
+          <!-- Button -->
+          <button
+            class="w-full bg-green-400 hover:bg-gray-900 text-white font-semibold py-2 rounded-lg transition"
+          >
+            Login
+          </button>
+        </form>
+        <div class="py-2 flex gap-4">
+          <label class="font-semibold">I don't have an account</label>
+          <a
+            class="text-green-600 font-semibold hover:underline rounded-lg"
+            href="./singup.html"
+            >SingUp</a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
