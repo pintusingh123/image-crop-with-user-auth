@@ -17,70 +17,84 @@
   </head>
 
   <body>
-    <div class="bg-gray-600 min-h-screen py-15   px-4">
+    <div class="bg-gray-600 min-h-screen py-20   px-4">
       <!-- Parent -->
       <div
         class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-6 items-stretch"
       >
         <!-- Profile Card -->
         <div
-          class="bg-white relative pt-16 pb-6  px-6 sm:px-8 w-full lg:h-fit lg:w-[300px] rounded-2xl gap-2 shadow-lg flex flex-col items-center lg:items-start"
+          class="bg-white relative pt-20 pb-6 px-6 sm:px-8 w-full lg:h-fit lg:w-[300px] rounded-2xl shadow-lg flex flex-col items-center"
         >
           <!-- Avatar -->
-          <img
-            class="h-32 w-32 sm:h-36 sm:w-36 rounded-full absolute -top-14 left-1/2 -translate-x-1/2 border-4 border-white object-cover"
-            src="./imgs/avatar.jfif"
-            alt="avatar not fount"
-          />
+          <div id="uploadimgdiv" class="absolute -top-16 left-1/2 transform -translate-x-1/2 w-32 h-32 border-4 border-white rounded-full overflow-hidden flex justify-center items-center">
+            <img
+              id="profile-avatar"
+              class="w-full h-full object-cover rounded-full"
+              src="./imgs/avatar.jfif"
+              alt="avatar not found"
+            />
+            <input
+              id="avatar-file-input"
+              type="file"
+              accept="image/*"
+              class="absolute opacity-0 top-0 left-0 h-full w-full cursor-pointer"
+              onchange="uploadProfileimg()"
+            />
+          </div>
 
           <!-- Content -->
-          <div class="mt-16 text-center lg:text-left w-full">
-            <div class="mb-1">
-              <span class="text-medium font-semibold text-gray-900 capitalizetracking-wide">User Name:</span>
-              <span id="user-name" class="text-base font-semibold text-blue-800 ml-2"></span>
+          <div class="mt-4 text-center w-full">
+            <div class="mb-2">
+              <span class="text-sm font-semibold text-gray-900">User Name:</span>
+              <span id="user-name" class="text-base font-semibold text-blue-800 ml-1"></span>
             </div>
-            <div class="mb-4">
-              <span class="text-medium font-semibold text-gray-900 capitalize tracking-wide">User Email:</span>
-              <span id="user-email" class="text-base font-semibold text-blue-800 ml-2"></span>
+            <div class="mb-6">
+              <span class="text-sm font-semibold text-gray-900">User Email:</span>
+              <span id="user-email" class="text-base font-semibold text-blue-800 ml-1"></span>
             </div>
 
-            <button
-              type="button"
-              class="relative bg-[#3F5174] w-full lg:w-auto px-5 rounded-lg font-semibold hover:bg-black text-white transition"
-            >
-              <i class="ri-download-line mr-1"></i>
-              Choose Image
-              <input
-                id="file-input"
-                onchange="uploadImg()"
-                type="file"
-                accept="image/*"
-                class="absolute top-0 left-0 h-full w-full opacity-0"
-              />
-            </button>
+            <div class="space-y-3 w-full">
+              <button
+                type="button"
+                class="relative bg-[#3F5174] w-full px-5 py-2 rounded-lg font-semibold hover:bg-black text-white transition"
+              >
+                <i class="ri-download-line mr-1"></i>
+                Choose Image
+                <input
+                  id="file-input"
+                  onchange="uploadImg()"
+                  type="file"
+                  accept="image/*"
+                  class="absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer"
+                />
+              </button>
 
-            <button
-              onclick="loadCropper()"
-              class="bg-rose-800 mt-4 w-full lg:w-fit px-5 py-2 rounded-lg font-semibold hover:bg-black text-white transition"
-            >
-              <i class="ri-crop-line mr-1"></i>
-              Crop Image
-            </button>
-            <button
-              onclick="DownloadImg()"
-              id="download-button"
-              class=" hidden bg-green-800 mt-4 w-full lg:w-fit px-5 py-2 rounded-lg font-semibold hover:bg-black text-white transition"
-            >
-              <i class="ri-upload-line mr-1"></i>
-              Download
-            </button>
+              <button
+                onclick="loadCropper()"
+                class="bg-rose-800 w-full px-5 py-2 rounded-lg font-semibold hover:bg-black text-white transition"
+              >
+                <i class="ri-crop-line mr-1"></i>
+                Crop Image
+              </button>
 
-            <button
-              onclick="logOut()"
-              class="bg-[#3F5174] mt-4 w-full lg:w-fit px-5 py-2 rounded-lg font-semibold hover:bg-black text-white transition"
-            >
-              <i class="ri-logout-circle-r-line mr-1"></i> Logout
-            </button>
+              <button
+                onclick="DownloadImg()"
+                id="download-button"
+                class="hidden bg-green-800 w-full px-5 py-2 rounded-lg font-semibold hover:bg-black text-white transition"
+              >
+                <i class="ri-upload-line mr-1"></i>
+                Download
+              </button>
+
+              <button
+                onclick="logOut()"
+                class="bg-[#3F5174] w-full px-5 py-2 rounded-lg font-semibold hover:bg-black text-white transition"
+              >
+                <i class="ri-logout-circle-r-line mr-1"></i>
+                Logout
+              </button>
+            </div>
           </div>
         </div>
 

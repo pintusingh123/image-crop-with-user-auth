@@ -10,7 +10,14 @@ userData()
 
 //user details shows funtinality => 
   function userData(){
+
     const currentUserEmail = localStorage.getItem('currentUser');
+    const profileImg = localStorage.getItem('profile-img');
+
+    if(profileImg){
+      let profileAvatar = document.getElementById("profile-avatar")
+      profileAvatar.src = profileImg;
+    }
     if (currentUserEmail) {
       const userData = JSON.parse(localStorage.getItem(currentUserEmail));
       if (userData) {
@@ -70,4 +77,28 @@ function DownloadImg() {
   a.download = "croppedimg.png";
   a.click();
   a.remove();
+}
+
+//profile img 
+
+function uploadProfileimg(){
+  let profileImgInput = document.getElementById("avatar-file-input")
+let profileImgAdded = document.getElementById("profile-avatar")
+  let file = profileImgInput.files[0];
+  
+  
+  // good way for image,audio,video urls=>
+  const fileReader =  new FileReader(); //api for file read 
+  fileReader.readAsDataURL(file)
+
+  fileReader.onload = (e) =>{
+    const filestring = e.target.result
+    console.log(filestring);
+    profileImgAdded.src=filestring
+    localStorage.setItem("profile-img", filestring)
+  }
+
+  // //jo file mili hai uska url return krna hai temp url 
+  // let url = URL.createObjectURL(file); //temp url gerater krata hai
+ 
 }
